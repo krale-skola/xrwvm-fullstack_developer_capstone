@@ -3,12 +3,18 @@ img{
   align-self: center;
 }
 
+.card-img-top{
+  width: 200px;
+  height: 400px;
+  object-fit: cover;
+
+}
 .card{
   border: rgb(103, 102, 105) 3px solid;
-  display: flex;  
-  flex-direction: column;
-  margin-left:5%;
-  margin-right:5%;
+  display: flex;
+  flex-direction: row;
+  margin-left:3%;
+  margin-right:3%;
   margin-top: 1%;
   margin-bottom: 1%;
 }
@@ -32,13 +38,28 @@ img{
   padding:20px;
 }
 
+.banner-title{
+  font-family: 'Times New Roman', Times, serif;
+}
 .title{
+  font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
   background-color: rgb(97, 64, 128);
   color: white;
   text-align: center;
-  margin:20px;
+  margin:0px;
   padding:5px;
+}
+
+.other-title{
+  font-family: 'Times New Roman', Times, serif;
+  font: bold;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  text-align: left;
+  /*margin:20px;
+  padding:5px; */
 }
 
 .homepage_links{
@@ -124,3 +145,4 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

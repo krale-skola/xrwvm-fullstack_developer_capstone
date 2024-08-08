@@ -2,8 +2,88 @@
 <head>
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <style>
+    /* Popup container */
+    .popup {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* The actual popup */
+    .popup .popuptext {
+      visibility: hidden;
+      width: 560px;
+      background-color:  rgb(97, 64, 128);
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -80px;
+    }
+    
+    /* Popup arrow */
+    .popup .popuptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+    
+    /* Toggle this class - hide and show the popup */
+    .popup .show {
+      visibility: visible;
+      -webkit-animation: fadeIn 0s;
+      animation: fadeIn 0s;
+    }
+    
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+      from {opacity: 0;} 
+      to {opacity: 1;}
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1 ;}
+    }
+    </style>
+
+<script>
+
+  const logout = async (e) => {
+  //Include the code for logout here.
+  };
+  
+  let checkSession = ()=>{
+    let curr_user = sessionStorage.getItem("username");
+  
+    if (curr_user && curr_user !== "") {
+      document.getElementById("loginlogout").innerHTML = 
+      '<span class="homepage_links">' + curr_user +'</span>' +
+      '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
+    } else {
+      document.getElementById("loginlogout").innerHTML = 
+      '<a class="homepage_links" href="/login">Login</a>'+
+      '<a class="homepage_links"  href="/register">Register</a>'
+    }
+   }
+  </script>
 </head>
-<div>
+<body onload="checkSession()">
+  <div>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
     <div class="container-fluid">
       <h2 style="padding-right: 5%;">Dealerships</h2>
@@ -22,51 +102,102 @@
             <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
           </li>
         </ul>
+        <span class="navbar-text">
+          <div class="loginlink" id="loginlogout">
+          </div>
+          </span>
       </div>
     </div>
   </nav>
   
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-        <h1> About Us</h1>
+    <div class="card" style="width: 80%;margin: auto; margin-top:5%;border-color: white;">
+      <div class="banner" name="about-header" style="margin-bottom: 1%;">
+        <h1 class="banner-title"> About Us</h1>
         Welcome to Best Cars Dealerships, home to the best cars in North America. we deal in sale of domestic and imported cars at reasonable prices.
         with more than 20 years of experience in cars sale, we are able to give you prices that are below the market price 
         and all of our informations comes direclty from recognized dealerships. 
       </div>
       <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
+      <div class="card" style="width: 50%; border-color: white;">
+        <img class="card-img-top" src="/static/justin.png" alt="Card image">
+        <div class="card-body">
+          <p class="title">Anderson<br/>Wingins</p>
+          <p class="other-title">CEO</p>
+          <div class="popup title" onclick="moreInfo1()">More Info
+            <div class="popuptext" id="myPopup1">
+              <p class="card-text">Hello, I'm Anderson Wingins, the CEO of Best Cars dealerships. While I wasn't the founder, 
+                I'm proud to lead our team in [Company's Mission or Vision]. My background in 
+                [relevant experience or industry] has guided our growth and strategic direction.</p>
+              <address>
+                <a href="mailto:andersonwingins@bestcarsdealer.com">andersonwingins@bestcarsdealer.com</a>
+              </address>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 50%;border-color: white;">
         <img class="card-img-top" src="/static/alice.png" alt="Card image">
         <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
+          <p class="title">Malaïka </br> Baker</p>
+          <p class="other-title">CFO</p>
+          <div class="popup title" onclick="moreInfo2()">More Info
+            <div class="popuptext" id="myPopup2">
+              <p>My name is Malaïka Baker, and I'm the new Chief Financal Officer at Best Cars dealerships. I have recently joined the company and am contacting important clients to introduce myself personally.
+              I would welcome the opportunity to meet with you, understand more about your role within the organization, and discuss how we can work together most effectively.
+              Please feel free to contact me to arrange a meeting. I'm looking forward to working with you in the future and continuing our positive relationship.
+              </p>
+              <address>
+                <a href="mailto:malaikabaker@bestcarsdealer.com">malaikabaker@bestcarsdealer.com</a>
+              </address>
+
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
+      <div class="card" style="width: 50%;border-color: white;">
+        <img class="card-img-top" src="/static/marco.png" alt="Card image">
         <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
+          <p class="title">Alfredo </br> Burdinger</p>
+          <p class="other-title">Marketing Director</p>
+          <div class="popup title" onclick="moreInfo3()">More Info
+            <div class="popuptext" id="myPopup3">
+              <p class="card-text">My name is Alfredo Burdinger, and I have recently joined BestCars dealerships as the new Marketing Director.
+                I want to introduce myself to you all and take this opportunity to express how excited I am to be joining the company at this point. 
+                Please feel free to contact me if you would like to get in touch. I'm looking forward to getting to know all of you and working together.
+                </p>
+              <address>
+                <a href="mailto:burdalfredo@bestcarsdealer.com">burdalfredo@bestcarsdealer.com</a>
+              </address>
+
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
-        </div>
-      </div>
     </div>
     </div>
     </div>
     
 </div>
+
+<script>
+  // When the user clicks on more info, open the popup
+  function moreInfo1() {
+    var popup = document.getElementById("myPopup1");
+    popup.classList.toggle("show");
+  }
+  function moreInfo2() {
+    var popup = document.getElementById("myPopup2");
+    popup.classList.toggle("show");
+  }
+  function moreInfo3() {
+    var popup = document.getElementById("myPopup3");
+    popup.classList.toggle("show");
+  }
+  </script>
+</body>
 
 </html>
