@@ -53,13 +53,11 @@ img{
 
 .other-title{
   font-family: 'Times New Roman', Times, serif;
-  font: bold;
-  font-size: 50px;
   background-color: white;
   color: black;
   text-align: left;
-  /*margin:20px;
-  padding:5px; */
+  margin:1px;
+  padding:1px;
 }
 
 .homepage_links{
