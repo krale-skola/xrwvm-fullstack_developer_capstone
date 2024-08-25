@@ -29,7 +29,7 @@ class CarModel(models.Model):
     ]
     type = models.CharField(max_length=15, choices=CAR_TYPES, default='SUV')
     year = models.IntegerField(default=2023,
-        validators=[
+    validators=[
         MaxValueValidator(2024),
         MinValueValidator(2000)
         ])
@@ -43,14 +43,14 @@ class CarModel(models.Model):
         ('YELLOW', 'Yellow'),
     ]
     colors = models.CharField(max_length=10,
-        choices=COLORS_CHOICE, default='Black')
+    choices=COLORS_CHOICE, default='Black')
     CONDITION_CHOICE = [
         ('NEW', 'New'),
         ('DEMO', 'Demo'),
         ('USED', 'Used'),
     ]
     condition = models.CharField(max_length=10,
-        choices=CONDITION_CHOICE, default='NEW')
+    choices=CONDITION_CHOICE, default='NEW')
 
     def __st__(self):
         return self.name
