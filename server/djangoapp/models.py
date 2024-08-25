@@ -49,7 +49,7 @@ class CarModel(models.Model):
         ('USED', 'Used'),
     ]
     condition = models.CharField(max_length=10,
-    choices=CONDITION_CHOICE, default='NEW')
+                                 choices=CONDITION_CHOICE, default='NEW')
 
     def __st__(self):
         return self.name
