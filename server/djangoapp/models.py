@@ -13,6 +13,7 @@ class CarMake(models.Model):
     def __str__(self):
         return self.name + self.description
 
+
 # Create CarMadel model
 class CarModel(models.Model):
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
@@ -27,8 +28,8 @@ class CarModel(models.Model):
         ('HATCHBACK', 'Hatchback')
     ]
     type = models.CharField(max_length=15, choices=CAR_TYPES, default='SUV')
-    year = models.IntegerField(default=2023, 
-    validators=[
+    year = models.IntegerField(default=2023,
+        validators=[
         MaxValueValidator(2024),
         MinValueValidator(2000)
         ])
@@ -42,14 +43,14 @@ class CarModel(models.Model):
         ('YELLOW', 'Yellow'),
     ]
     colors = models.CharField(max_length=10,
-    choices=COLORS_CHOICE, default='Black')
+        choices=COLORS_CHOICE, default='Black')
     CONDITION_CHOICE = [
         ('NEW', 'New'),
         ('DEMO', 'Demo'),
         ('USED', 'Used'),
     ]
     condition = models.CharField(max_length=10,
-    choices=CONDITION_CHOICE, default='NEW')
+        choices=CONDITION_CHOICE, default='NEW')
 
     def __st__(self):
         return self.name
