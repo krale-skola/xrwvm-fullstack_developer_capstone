@@ -98,7 +98,7 @@ def get_cars(request):
     return JsonResponse({"CarModels": cars})
 
 
-# Update the `get_dealerships` render list of dealerships 
+# Update the `get_dealerships` render list of dealerships
 # all by default, particular state if state is passed
 def get_dealerships(request, state="All"):
     if (state == "All"):
@@ -138,7 +138,7 @@ def add_review(request):
     if (request.user.is_anonymous is False):
         data = json.loads(request.body)
         try:
-            response = post_review(data)
+            # response = post_review(data)
             return JsonResponse({"status": 200})
         except Exception:
             return JsonResponse({"status": 401, "message":
