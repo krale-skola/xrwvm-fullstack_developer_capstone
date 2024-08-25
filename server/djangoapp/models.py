@@ -42,7 +42,7 @@ class CarModel(models.Model):
         ('YELLOW', 'Yellow'),
     ]
     colors = models.CharField(max_length=10,
-                                choices=COLORS_CHOICE, default='Black')
+                              choices=COLORS_CHOICE, default='Black')
     CONDITION_CHOICE = [
         ('NEW', 'New'),
         ('DEMO', 'Demo'),
